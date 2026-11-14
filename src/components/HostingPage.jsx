@@ -103,15 +103,9 @@ function DynamicEventImage({ event, onSelect }) {
       {/* Top Overlay Badge */}
       <div className="relative z-10 p-4 flex items-center justify-between">
         <span className="text-[10px] font-mono px-2.5 py-1 rounded bg-black/60 backdrop-blur-md text-white font-semibold border border-white/15">
-          {media.badge}
+          {media.photoTitle || title}
         </span>
         <div className="flex items-center gap-1.5">
-          {loaded && (
-            <span className="flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded bg-brand/90 backdrop-blur-md text-white font-bold">
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-              <span>VERIFIED PHOTO</span>
-            </span>
-          )}
           <Maximize2 className="w-3.5 h-3.5 text-white/70 group-hover:text-white transition-colors" />
         </div>
       </div>
@@ -206,8 +200,8 @@ function DynamicGalleryItem({ photo, onSelect }) {
 
       {/* Top tag */}
       <div className="relative z-10 flex items-center justify-between">
-        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-black/75 backdrop-blur-md text-brand font-bold border border-brand/30">
-          IMAGE {photo.number} // {photo.category}
+        <span className="text-[10px] font-mono px-2.5 py-1 rounded bg-black/75 backdrop-blur-md text-brand font-bold border border-brand/30">
+          {photo.category}
         </span>
         {!failedAll && (
           <Maximize2 className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
@@ -220,9 +214,6 @@ function DynamicGalleryItem({ photo, onSelect }) {
           <h5 className="font-display font-bold text-xs text-white group-hover:text-brand transition-colors">
             {photo.title}
           </h5>
-          <span className="font-mono text-[9px] text-brand font-semibold">
-            {photo.number}
-          </span>
         </div>
         <p className="text-[11px] text-neutral-300 font-normal leading-tight">
           {photo.caption}
@@ -385,19 +376,19 @@ export default function HostingPage({ onBack }) {
           </div>
         </section>
 
-        {/* SECTION 2 — Photo Archive: Moments on the Stage (Exactly 4 existing boxes -> Images 04, 05, 06, 07) */}
+        {/* SECTION 2 — Photo Archive: Moments on the Stage */}
         <section>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4 pb-4 border-b border-neutral-200">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-brand font-bold block mb-1">
-                PHOTO ARCHIVE (IMAGES 04, 05, 06, 07)
+                PHOTO ARCHIVE
               </span>
               <h2 className="font-display font-bold text-3xl sm:text-4xl text-ink-950">
                 Moments on the Stage
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-ink-500 font-normal">
-              4 dedicated archive cards in chronological sequence • Click any frame to view in high resolution
+              Chronological stage moments • Click any photo to view in high resolution
             </p>
           </div>
 
@@ -410,18 +401,6 @@ export default function HostingPage({ onBack }) {
                 onSelect={(selected) => setSelectedPhoto(selected)}
               />
             ))}
-          </div>
-
-          {/* Distribution breakdown banner */}
-          <div className="mt-8 p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-xs text-ink-700 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <span className="flex h-2 w-2 rounded-full bg-emerald-500"></span>
-              <span className="font-semibold text-ink-900">7 Total Images (3 Upper Section + 4 Photo Archive)</span>
-              <span className="text-ink-500 font-mono hidden sm:inline">• Images 01, 02, 03 above • Images 04, 05, 06, 07 below</span>
-            </div>
-            <span className="font-mono text-[11px] text-ink-500">
-              public/assets/hosting/
-            </span>
           </div>
         </section>
 
@@ -458,18 +437,13 @@ export default function HostingPage({ onBack }) {
           >
             {/* Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-neutral-800">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs px-2.5 py-1 rounded bg-brand text-white font-extrabold">
-                  {selectedPhoto.number}
+              <div>
+                <h4 className="font-display font-bold text-base sm:text-lg text-white">
+                  {selectedPhoto.title}
+                </h4>
+                <span className="text-[11px] font-mono text-brand">
+                  {selectedPhoto.category}
                 </span>
-                <div>
-                  <h4 className="font-display font-bold text-base sm:text-lg text-white">
-                    {selectedPhoto.title}
-                  </h4>
-                  <span className="text-[11px] font-mono text-brand">
-                    {selectedPhoto.category}
-                  </span>
-                </div>
               </div>
 
               <button 
