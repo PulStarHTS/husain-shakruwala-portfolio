@@ -146,26 +146,6 @@ export default function VideoIntro({ onOpenVideo }) {
                   </div>
                 </div>
               </div>
-
-              {/* Beginner-friendly instructions card */}
-              <div className="mt-8 p-4 rounded-xl bg-neutral-900/90 border border-neutral-800 text-neutral-300">
-                <div className="flex items-center gap-2 text-xs font-semibold text-white mb-1.5">
-                  <Video className="w-4 h-4 text-brand" />
-                  <span>How to add your real video:</span>
-                </div>
-                <p className="text-xs text-neutral-400 leading-relaxed">
-                  Open <code className="text-brand font-mono">src/data/portfolioData.js</code> and paste your YouTube, Loom, or Vimeo link into <code className="text-neutral-200 font-mono">embedUrl</code>. It updates instantly with no coding needed!
-                </p>
-                <div className="mt-3">
-                  <button
-                    onClick={onOpenVideo}
-                    className="w-full py-2.5 px-4 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs font-semibold text-white transition-colors flex items-center justify-center gap-2 border border-neutral-700"
-                  >
-                    <Play className="w-3.5 h-3.5 text-brand" />
-                    <span>Open Interactive Video Player</span>
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>

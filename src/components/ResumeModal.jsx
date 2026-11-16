@@ -230,9 +230,9 @@ export default function ResumeModal({ onClose }) {
           </div>
         </div>
 
-        {/* Footer info for Husain */}
+        {/* Footer */}
         <div className="p-4 bg-white border-t border-neutral-200 px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-ink-500 gap-2">
-          <span>💡 Note for Husain: Replace <code className="text-brand font-mono">public/assets/Husain_Shakruwala_Resume.pdf</code> with your real PDF anytime.</span>
+          <span className="font-mono text-ink-400">Curriculum Vitae • {personalInfo.name}</span>
           <span className="font-mono text-brand font-semibold">{personalInfo.domain}</span>
         </div>
       </div>

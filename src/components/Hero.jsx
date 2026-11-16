@@ -181,15 +181,6 @@ export default function Hero({ onOpenResume }) {
                     </div>
                   </div>
                 </div>
-
-                {/* Status Bar beneath image */}
-                <div className="mt-3 px-3 py-2 bg-neutral-50 rounded-lg border border-neutral-200 text-left flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
-                    <span className="text-xs font-semibold text-ink-800">Custom Portrait Loaded</span>
-                  </div>
-                  <span className="text-[10px] font-mono text-ink-400">public/assets/</span>
-                </div>
               </div>
             </div>
           </div>

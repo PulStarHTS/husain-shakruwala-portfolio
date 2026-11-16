@@ -54,12 +54,6 @@ function DynamicMediaFrame({ slot, type, onSelect }) {
           {type === 'Certificate' ? 'COMMENDATION / CERTIFICATE' : 'DUTY PHOTOGRAPH'}
         </span>
         <div className="flex items-center gap-1.5">
-          {loaded && (
-            <span className="flex items-center gap-1 text-[9px] font-mono px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold border border-emerald-200">
-              <Check className="w-2.5 h-2.5" />
-              <span>LOADED</span>
-            </span>
-          )}
           <Maximize2 className="w-3.5 h-3.5 text-ink-400 group-hover:text-brand transition-colors" />
         </div>
       </div>
@@ -276,12 +270,6 @@ export default function LeadershipPage({ onBack }) {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Simple instructions banner */}
-          <div className="mt-8 p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-xs text-ink-600 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <span>📜 <strong>Certificate Drop-in:</strong> Place your scans or photos in <code className="text-brand font-mono">public/assets/leadership/</code> and they will appear automatically.</span>
-            <span className="text-brand font-mono text-[11px] font-semibold">Instant Detection</span>
           </div>
         </section>
 

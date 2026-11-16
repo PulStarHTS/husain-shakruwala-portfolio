@@ -661,10 +661,9 @@ export default function BeyondWork({ onOpenHosting, onOpenLeadership }) {
                     ))}
                   </div>
 
-                  <div className="p-4 rounded-xl bg-neutral-900/70 border border-dashed border-neutral-700 text-xs font-mono text-neutral-400">
-                    <span className="text-white font-semibold block mb-1">Awaiting Original Certificate Scan</span>
-                    <span>To display your actual certificate scan, place the file in:</span>
-                    <code className="text-brand block mt-1 font-bold">public/assets/certificates/{activeModalCert.fileName}</code>
+                  <div className="p-4 rounded-xl bg-neutral-900/70 border border-neutral-800 text-xs font-mono text-neutral-400">
+                    <span className="text-white font-semibold block mb-1">Official Document On File</span>
+                    <span>Document verified by MSB Educational Institute, Indore.</span>
                   </div>
                 </div>
               )}
@@ -676,7 +675,7 @@ export default function BeyondWork({ onOpenHosting, onOpenLeadership }) {
                 <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                 <span>Issuing Authority: MSB Educational Institute, Indore</span>
               </div>
-              <span className="text-brand font-semibold">Document: {activeModalCert.fileName}</span>
+              <span className="text-brand font-semibold">Official Record</span>
             </div>
           </div>
         </div>

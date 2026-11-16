@@ -88,14 +88,11 @@ function DynamicEventImage({ event, onSelect }) {
 
       {/* Fallback Missing File Graphic */}
       {failedAll && (
-        <div className="absolute inset-0 p-5 flex flex-col items-center justify-center text-center bg-neutral-950/95 border border-red-500/30">
-          <AlertCircle className="w-8 h-8 text-red-400 mb-2" />
-          <span className="font-display font-bold text-xs text-white">Missing Image File</span>
-          <span className="font-mono text-[10px] text-red-300 mt-1 break-all px-2 py-1 bg-red-950/40 rounded border border-red-900/50">
-            {fileName}
-          </span>
-          <span className="font-mono text-[9px] text-neutral-400 mt-2">
-            Place in public/assets/hosting/
+        <div className="absolute inset-0 p-5 flex flex-col items-center justify-center text-center bg-neutral-950/95 border border-neutral-800">
+          <ImageIcon className="w-8 h-8 text-neutral-500 mb-2" />
+          <span className="font-display font-bold text-xs text-white">{media.photoTitle || title}</span>
+          <span className="font-mono text-[10px] text-neutral-400 mt-1">
+            Photo record
           </span>
         </div>
       )}
@@ -185,15 +182,11 @@ function DynamicGalleryItem({ photo, onSelect }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30 pointer-events-none"></div>
         </>
       ) : (
-        /* Missing file notice per instruction #13 */
-        <div className="absolute inset-0 p-5 flex flex-col items-center justify-center text-center bg-neutral-950/95 border border-red-500/30">
-          <AlertCircle className="w-8 h-8 text-red-400 mb-2" />
-          <span className="font-display font-bold text-xs text-white">Missing Image File</span>
-          <span className="font-mono text-[10px] text-red-300 mt-1 break-all px-2 py-1 bg-red-950/40 rounded border border-red-900/50">
-            {fileName}
-          </span>
-          <span className="font-mono text-[9px] text-neutral-400 mt-3 leading-tight">
-            Place this exact file in<br /><code className="text-brand">public/assets/hosting/</code>
+        <div className="absolute inset-0 p-5 flex flex-col items-center justify-center text-center bg-neutral-950/95 border border-neutral-800">
+          <ImageIcon className="w-8 h-8 text-neutral-500 mb-2" />
+          <span className="font-display font-bold text-xs text-white">{photo.title}</span>
+          <span className="font-mono text-[10px] text-neutral-400 mt-1">
+            Photo record
           </span>
         </div>
       )}
@@ -478,8 +471,8 @@ export default function HostingPage({ onBack }) {
               <p className="text-neutral-300 font-normal">
                 {selectedPhoto.caption}
               </p>
-              <span className="font-mono text-[11px] text-neutral-500">
-                {selectedPhoto.filePath.split('/').pop()}
+              <span className="font-mono text-[11px] text-brand">
+                Husain Shakruwala • Stage Archive
               </span>
             </div>
           </div>

@@ -3,9 +3,7 @@ import { videoIntro, personalInfo } from '../data/portfolioData';
 import { X, Play, Video, Volume2, Sparkles, ExternalLink, Check } from 'lucide-react';
 
 export default function VideoModal({ onClose }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [testUrl, setTestUrl] = useState('');
-  const [activeEmbed, setActiveEmbed] = useState(videoIntro.embedUrl || '');
+  const activeEmbed = videoIntro.embedUrl || '';
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -13,23 +11,6 @@ export default function VideoModal({ onClose }) {
       document.body.style.overflow = 'unset';
     };
   }, []);
-
-  const handleApplyTestUrl = (e) => {
-    e.preventDefault();
-    if (!testUrl.trim()) return;
-
-    let formatted = testUrl.trim();
-    // Auto-convert standard youtube watch URLs to embed URLs if needed
-    if (formatted.includes('youtube.com/watch?v=')) {
-      const videoId = formatted.split('v=')[1]?.split('&')[0];
-      if (videoId) formatted = `https://www.youtube.com/embed/${videoId}`;
-    } else if (formatted.includes('youtu.be/')) {
-      const videoId = formatted.split('youtu.be/')[1]?.split('?')[0];
-      if (videoId) formatted = `https://www.youtube.com/embed/${videoId}`;
-    }
-
-    setActiveEmbed(formatted);
-  };
 
   return (
     <div 
@@ -93,46 +74,15 @@ export default function VideoModal({ onClose }) {
                   </div>
 
                   <h4 className="font-display font-bold text-xl sm:text-2xl text-white mb-2">
-                    Video Slot Ready for Husain
+                    {videoIntro.title}
                   </h4>
 
-                  <p className="text-xs sm:text-sm text-neutral-300 mb-6 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
                     "{videoIntro.placeholderQuote}"
                   </p>
-
-                  <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-left mb-4">
-                    <p className="text-xs text-neutral-300 font-mono leading-relaxed">
-                      <span className="text-brand font-bold">✨ How to add your video:</span><br />
-                      1. Record your 60-second intro video.<br />
-                      2. Upload to YouTube, Vimeo, or Loom (or save in <code className="text-white">public/assets/</code>).<br />
-                      3. Paste the URL into <code className="text-brand">src/data/portfolioData.js</code> in <code className="text-white">embedUrl</code>.
-                    </p>
-                  </div>
                 </div>
               </div>
             )}
-          </div>
-
-          {/* Quick Interactive Preview Link Tester */}
-          <div className="mt-6 p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-            <form onSubmit={handleApplyTestUrl} className="flex flex-col sm:flex-row items-center gap-3">
-              <span className="text-xs font-mono text-neutral-400 shrink-0">
-                Preview any video link live:
-              </span>
-              <input
-                type="text"
-                placeholder="Paste YouTube or video embed URL here..."
-                value={testUrl}
-                onChange={(e) => setTestUrl(e.target.value)}
-                className="flex-1 w-full px-3.5 py-2 rounded-xl bg-neutral-950 border border-neutral-800 text-xs text-white placeholder-neutral-500 focus:border-brand outline-none"
-              />
-              <button
-                type="submit"
-                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-brand hover:bg-brand-600 text-white text-xs font-mono font-semibold transition-colors shrink-0"
-              >
-                Test Player
-              </button>
-            </form>
           </div>
         </div>
 
